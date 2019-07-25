@@ -75,7 +75,7 @@ Using Postman
 
     URL:    http://localhost/mancala/api/players
 	Params:	{nameplayer1: "Bla", nameplayer2: "Bliep"}
-	(Body parameters 'application/json' encoded)
+	        (Body parameters 'application/json' encoded)
 
 ### PUT request to play the game
 
