@@ -82,6 +82,6 @@ Using Postman
     URL:    http://localhost/mancala/api/play/{pit_index}
 	Pit index:
 	
-    	   13 12 11 10  9  8
+           13 12 11 10  9  8
 	    14                    7
 	        1  2  3  4  5  6
