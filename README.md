@@ -30,3 +30,42 @@ The MancalaAPI has a dependency on the MancalaDomain so make sure you do the fol
 Copy the Mancala interface into the right package within your domain project and make a class that implements this interface and calls your domein objects for the specified methods. Than run the command below from within your MancalaDomein project to install the MancalaDomain JAR into your local Maven repository so that the MancalaAPI project can find it:
 
     C\>mvn clean install
+
+If you make a change in the MancalaDomain project rerun this step to make sure the change ends up in your local Maven repository.
+
+### Using the MancalaDomainForwardInitializationComplete JAR
+
+Check the version of your local *maven-install-plugin* with the following command:
+
+    C\>mvn -Dplugin=org.apache.maven.plugins:maven-install-plugin help:describe
+
+The version of your local *maven-install-plugin* should be 2.5 or higher. If this is not the case use the ling below to download a newer version of this plugin
+
+==> [Maven-Install-Plugin](https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-install-plugin/)
+
+Download both the JAR and the POM file and than use the following command to install this new version:
+
+    C\>mvn install:install-file -Dfile=<path-to-file> -DpomFile=<path-to-pomfile>
+
+Go to the directory where you'll find the MancalaDomainForwardInitializationComplete JAR and run the following command to install this JAR:
+
+    C\>mvn org.apache.maven.plugins:maven-install-plugin:3.0.0-M1:install-file -Dfile=MancalaDomain-1.0.0-SNAPSHOT.jar
+    (this is for version *3.0.0-M1* of the *maven-install-plugin*)
+
+Now the MancalaDomain should be installed in your local Maven repository so that the MancalaAPI project can find it.
+
+### Run the MancalaAPI project
+
+The HTTP port used in this project is defined within the projects POM, so if port 80 is already in use you can change the portnumber here. From within the MancalaAPI project run the following commands:
+
+    C\>mvn clean package
+    C\>mvn jetty:run
+
+Now that the MancalaAPI project is running you can use Postman to test it or go to:
+
+    http://localhost/mancala
+	(add a portnumber to *localhost* if you've changed the port in the projects POM)
+
+Using Postman
+-------------
+
