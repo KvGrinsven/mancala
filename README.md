@@ -69,3 +69,19 @@ Now that the MancalaAPI project is running you can use Postman to test it or go 
 Using Postman
 -------------
 
+==> [Get Postman](https://www.getpostman.com/)
+
+### POST request to initialize the game
+
+    URL:    http://localhost/mancala/api/players
+	Params:	{nameplayer1: "Bla", nameplayer2: "Bliep"}
+	(Body parameters 'application/json' encoded)
+
+### PUT request to play the game
+
+    URL:    http://localhost/mancala/api/play/{pit_index}
+	Pit index:
+	
+    	   13 12 11 10  9  8
+	    14                    7
+	        1  2  3  4  5  6
