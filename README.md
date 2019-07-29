@@ -39,13 +39,15 @@ Check the version of your local *maven-install-plugin* with the following comman
 
     C\>mvn -Dplugin=org.apache.maven.plugins:maven-install-plugin help:describe
 
-The version of your local *maven-install-plugin* should be 2.5 or higher. If this is not the case use the ling below to download a newer version of this plugin
+The version of your local *maven-install-plugin* should be 2.5 or higher. If this is not the case use the link below to download a newer version of this plugin
 
 ==> [Maven-Install-Plugin](https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-install-plugin/)
 
 Download both the JAR and the POM file and than use the following command to install this new version:
 
     C\>mvn install:install-file -Dfile=<path-to-file> -DpomFile=<path-to-pomfile>
+
+PS: This wil only install a newer version of the maven-install-plugin to be used on the commandline, and does NOT automatically update Maven to use this new version of the maven-install-plugin (if you want Maven to use this newer version you need to configure Maven to use this newer version, which we won't further discuss here).
 
 Go to the directory where you'll find the MancalaDomainForwardInitializationComplete JAR and run the following command to install this JAR:
 
