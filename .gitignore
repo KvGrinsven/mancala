@@ -1,5 +1,9 @@
 # BASED ON: https://github.com/github/gitignore/
 
+# JAVASCRIPT BEGIN ------------------------------------------------------------
+
+MancalaFrontend/node_modules/
+
 # JAVA BEGIN ------------------------------------------------------------------
 
 # Compiled class file
