@@ -3,7 +3,7 @@ export interface GameState {
     players: [ Player, Player ]; // a player array contains exactly two Players
     gameStatus: {
         endOfGame: boolean;
-    }
+    };
 }
 
 interface Player {

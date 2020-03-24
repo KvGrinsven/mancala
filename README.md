@@ -5,7 +5,7 @@ Read this readme carefully before you start working on the Mancala MVC assignmen
 Front-end
 ---------
 
-The front-end for this case has been partially set-up. It's a React app that can be found in the `/MancalaFrontend` folder.
+The front-end for this case has been partially set-up. It's a React app that can be found in the `MancalaFrontend` folder.
 In the `MancalaFrontend` folder run `npm install` to install all required dependencies.
 
 Running the front-end is as simple as running `npm start` from within the same folder. This starts a server on `localhost:3000`.
@@ -16,7 +16,11 @@ Calls to `api/` are forwarded from this server to the Mancala API server (runnin
         '/api/*': 'http://localhost:8080/mancala/', // <-- change 8080 to a different port if necessary
     }
 
-Webpack takes care of compiling the JavaScript and JSX code, bundling the output into a single file, etc. A basic configuration is provided, which should take care of most use cases.
+Webpack takes care of compiling the TypeScript code, bundling the output into a single file, etc. A basic configuration is provided, which should take care of most use cases.
+
+Run the command `npm run lint` to see syntax mistakes and common errors.
+
+Tip: Styling of components is handled by Styled Components. Install the `vscode-styled-components` plugin for autocomplete/syntax highlighting.
 
 Maven
 -----
