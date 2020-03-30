@@ -35,10 +35,10 @@ public class JSONResultProcessor {
         
         JSONObject gameStatus = new JSONObject();
         if (mancala.isEndOfGame()) {
-        	gameStatus.put("endOfGame", "true");
+        	gameStatus.put("endOfGame", true);
         	gameStatus.put("winner", mancala.getWinnersName());
         } else {
-        	gameStatus.put("endOfGame", "false");
+        	gameStatus.put("endOfGame", false);
         }
         result.put("gameStatus", gameStatus);
         
@@ -65,9 +65,9 @@ public class JSONResultProcessor {
 		jsonPlayer.put("name", mancala.getPlayerName(playerIndex));
 		
 		if (mancala.isToMovePlayer(playerIndex)) {
-			jsonPlayer.put("hasTurn", "true");
+			jsonPlayer.put("hasTurn", true);
 		} else {
-			jsonPlayer.put("hasTurn", "false");
+			jsonPlayer.put("hasTurn", false);
 		}
 		
 		JSONArray pits = new JSONArray();
@@ -88,7 +88,7 @@ public class JSONResultProcessor {
 		
 		JSONObject pit = new JSONObject();
 		pit.put("index", index);
-		pit.put("nr_of_stones", mancala.getStonesForPit(index));
+		pit.put("nrOfStones", mancala.getStonesForPit(index));
 		return pit;
 	}
  

@@ -2,6 +2,25 @@
 
 Read this readme carefully before you start working on the Mancala MVC assignment.
 
+Front-end
+---------
+
+The front-end for this case has been partially set-up. It's a React app that can be found in the `MancalaFrontend` folder.
+In the `MancalaFrontend` folder run `npm install` to install all required dependencies.
+
+Running the front-end is as simple as running `npm start` from within the same folder. This starts a server on `localhost:3000`.
+
+Calls to `api/` are forwarded from this server to the Mancala API server (running on `localhost:8080` if you follow the instructions below). If your Mancala API runs on a different port, change the following line in the `webpack.config.js` file:
+
+    proxy: {
+        '/api/*': 'http://localhost:8080/mancala/', // <-- change 8080 to a different port if necessary
+    }
+
+Webpack takes care of compiling the TypeScript code, bundling the output into a single file, etc. A basic configuration is provided, which should take care of most use cases.
+
+Run the command `npm run lint` to see syntax mistakes and common errors.
+
+Tip: Styling of components is handled by Styled Components. Install the `vscode-styled-components` plugin for autocomplete/syntax highlighting.
 
 Maven
 -----
@@ -27,7 +46,7 @@ The MancalaAPI has a dependency on the MancalaDomain so make sure you do the fol
 
 ### Using the Mancala interface
 
-Copy the Mancala interface into the right package within your domain project and make a class that implements this interface and calls your domein objects for the specified methods. Than run the command below from within your MancalaDomein project to install the MancalaDomain JAR into your local Maven repository so that the MancalaAPI project can find it:
+Copy the Mancala interface into the right package within your domain project and make a class that implements this interface and calls your domain objects for the specified methods. Then run the command below from within your MancalaDomain project to install the MancalaDomain JAR into your local Maven repository so that the MancalaAPI project can find it:
 
     C\>mvn clean install
 
@@ -52,13 +71,13 @@ PS: This wil only install a newer version of the maven-install-plugin to be used
 Go to the directory where you'll find the MancalaDomainForwardInitializationComplete JAR and run the following command to install this JAR:
 
     C\>mvn org.apache.maven.plugins:maven-install-plugin:3.0.0-M1:install-file -Dfile=MancalaDomain-1.0.0-SNAPSHOT.jar
-    (this is for version *3.0.0-M1* of the *maven-install-plugin*)
+    (this is for version *3.0.0-M1* of the *maven-install-plugin*. You might need to add quotes around the location of the .jar.)
 
 Now the MancalaDomain should be installed in your local Maven repository so that the MancalaAPI project can find it.
 
 ### Run the MancalaAPI project
 
-The HTTP port used in this project is defined within the projects POM, so if port 80 is already in use you can change the portnumber here. From within the MancalaAPI project run the following commands:
+The HTTP port used in this project is defined within the projects POM, so if port 8080 is already in use you can change the portnumber here. From within the MancalaAPI project run the following commands:
 
     C\>mvn clean package
     C\>mvn jetty:run
