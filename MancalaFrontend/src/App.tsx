@@ -22,7 +22,7 @@ export function App() {
         setErrorMessage("");
 
         try {
-            const response = await fetch('api/players', {
+            const response = await fetch('mancala/api/players', {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
