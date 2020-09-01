@@ -7,6 +7,15 @@ interface PlayProps {
     playRecess(pit: number): void;
 }
 
+const Recess = styled.button`
+	width: 3em;
+	height: 3em;
+	font-size: 2em;
+	color: white;
+    background: green;
+    border-radius: 50%;
+    margin: 5px
+`
 
 export function Play({ gameState, playRecess }: PlayProps) {
 	const p1pits = gameState.players[0].pits
@@ -17,12 +26,12 @@ export function Play({ gameState, playRecess }: PlayProps) {
         
         <div>
 	        {[...p2pits].reverse().map(pit =>
-	        	 <button onClick={() => playRecess(pit.index)} type="button">{pit.nrOfStones}</button>)}
+	        	 <Recess key={pit.index} onClick={() => playRecess(pit.index)} type="button">{pit.nrOfStones}</Recess>)}
         </div>
         
         <div>
 	        {p1pits.map(pit =>
-	        	 <button onClick={() =>playRecess(pit.index)} type="button">{pit.nrOfStones}</button>)}
+	        	 <Recess key={pit.index} onClick={() => playRecess(pit.index)} type="button">{pit.nrOfStones}</Recess>)}
         </div>
     </div>
 }
