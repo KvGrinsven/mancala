@@ -34,7 +34,7 @@ public class MancalaGame {
 		
 		Mancala mancala = (Mancala) session.getAttribute("mancala");
 		mancala.playRecess(Integer.parseInt(pit));
-		// TODO Do I have to re-set the attribute?
+
 		String output = new JSONResultProcessor().createJSONResponse(mancala);
 		
 		return Response.status(200).entity(output).build();

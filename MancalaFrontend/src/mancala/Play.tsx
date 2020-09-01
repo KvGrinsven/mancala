@@ -20,18 +20,30 @@ export function Play({ gameState, playRecess }: PlayProps) {
 	    borderRadius: "50%",
 	    margin: 5,
 	}
+	
+	const kalahaStyle = {
+		fontSize: "2em",
+	    width: "2em",
+	    height: "2em",
+	    color: "white",
+	    background: "red",
+	    borderRadius: "50%",
+	    margin: 5,
+	}
 
     return <div>
         <p>{gameState.players[0].name} vs {gameState.players[1].name}</p>
         
-        <div>
-	        {[...p2pits].reverse().map(pit =>
-	        	 <button style={recessStyle} key={pit.index} onClick={() => playRecess(pit.index)} type="button">{pit.nrOfStones}</button>)}
-        </div>
         
         <div>
-	        {p1pits.map(pit =>
+        	<button disabled style={kalahaStyle}>{p2pits[6].nrOfStones}</button>
+	        {[...p2pits].reverse().filter(p => p.index < 14).map(pit =>
 	        	 <button style={recessStyle} key={pit.index} onClick={() => playRecess(pit.index)} type="button">{pit.nrOfStones}</button>)}
+        </div>
+        <div>
+	        {p1pits.filter(p => p.index < 7).map(pit =>
+	        	 <button style={recessStyle} key={pit.index} onClick={() => playRecess(pit.index)} type="button">{pit.nrOfStones}</button>)}
+	       <button disabled style={kalahaStyle}>{p1pits[6].nrOfStones}</button>
         </div>
 
     </div>
