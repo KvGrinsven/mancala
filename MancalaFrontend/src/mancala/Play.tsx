@@ -8,6 +8,7 @@ interface PlayProps {
 export function Play({ gameState }: PlayProps) {
     return <div>
         <p>{gameState.players[0].name} vs {gameState.players[1].name}</p>
-        <p>Todo...</p>
+        // Just messing around to print something else
+        <p>{gameState.gameStatus.endOfGame}</p>
     </div>
 }
