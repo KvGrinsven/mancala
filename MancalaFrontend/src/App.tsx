@@ -40,6 +40,27 @@ export function App() {
             setErrorMessage(error.toString());
         }
     }
+    
+    async function playRecess( pit: number) {
+    	try {
+    		const url = 'mancala/api/play/' + pit;
+            const response = await fetch(url, {
+                method: 'PUT',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                }
+            });
+    
+            if (response.ok) {
+                const gameState = await response.json();
+                setGameState(gameState);
+            }
+            setErrorMessage("Failed to play the pit. Try again.");
+        } catch (error) {
+            setErrorMessage(error.toString());
+        }
+    }
 
     if (!gameState) {
         return <StartGame onPlayersConfirmed={tryStartGame}
@@ -47,5 +68,6 @@ export function App() {
         />
     }
 
-    return <Play gameState={gameState} />
+    return <Play gameState={gameState}
+    			 playRecess={playRecess} />
 }
