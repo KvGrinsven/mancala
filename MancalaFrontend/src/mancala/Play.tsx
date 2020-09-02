@@ -85,7 +85,7 @@ export function Play({ gameState, playRecess }: PlayProps) {
     
     	{
     		gameState.gameStatus.endOfGame &&
-    		<p style={winnerStyle}>The game has ended!</p>
+    		<p style={winnerStyle}>{gameState.gameStatus.winner} has won!</p>
     	}
     	{
 	    	gameState.players[1].hasTurn
