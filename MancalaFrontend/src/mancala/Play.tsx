@@ -9,11 +9,13 @@ interface PlayProps {
 
 function Kalaha({nrOfStones}) {
 	const kalahaStyle = {
+		boxShadow: "inset 0px 0px 20px 3px #253309",
+		background: "#4a601a",
 		fontSize: "2em",
 	    width: "4em",
 	    height: "4em",
+	    border: "none",
 	    color: "white",
-	    background: "red",
 	    borderRadius: "50%",
 	    margin: 5,
 	}
@@ -26,9 +28,11 @@ export function Play({ gameState, playRecess }: PlayProps) {
 	const recessStyle = {
 	    fontSize: "2em",
 	    width: "2em",
+	    border: "none",
 	    height: "2em",
 	    color: "white",
-	    background: "green",
+	    boxShadow: "inset 0px 0px 20px 3px #493818",
+	    background: "#c46e2d",
 	    borderRadius: "50%",
 	    margin: 5,
 	}
@@ -37,7 +41,7 @@ export function Play({ gameState, playRecess }: PlayProps) {
 	const p2pits = gameState.players[1].pits
 
 	function Board() {
-			return <div>
+		return <div>
 			<section style={{display:"inline", verticalAlign:"bottom"}}>
 	           <Kalaha nrOfStones={p2pits[6].nrOfStones}/>
 	        </section>
