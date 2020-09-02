@@ -31,9 +31,15 @@ const kalahaStyle = {
     margin: 5,
 }
 
-const playernameStyle = {
+const turnplayerStyle = {
 	textAlign: "center",
-	color: "#cea321",
+	color: "green",
+	fontSize: "3em",
+}
+
+const opponentStyle = {
+	textAlign: "center",
+	color: "red",
 	fontSize: "3em",
 }
 
@@ -70,10 +76,22 @@ export function Play({ gameState, playRecess }: PlayProps) {
 
 
     return <div>
-        <p style={playernameStyle}>{gameState.players[0].name}</p>
+    	{
+	    	gameState.players[1].hasTurn
+	    	?
+	        <p style={turnplayerStyle}>{gameState.players[1].name}</p>
+	        :
+	        <p style={opponentStyle}>{gameState.players[1].name}</p>
+        }
         
        <Board/>
        
-       <p style={playernameStyle}>{gameState.players[1].name}</p>
+    	{
+	    	gameState.players[0].hasTurn
+	    	?
+	        <p style={turnplayerStyle}>{gameState.players[0].name}</p>
+	        :
+	        <p style={opponentStyle}>{gameState.players[0].name}</p>
+        }
     </div>
 }
