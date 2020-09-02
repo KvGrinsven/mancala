@@ -7,41 +7,47 @@ interface PlayProps {
     playRecess(pit: number): void;
 }
 
+const recessStyle = {
+    fontSize: "2em",
+    width: "2em",
+    border: "none",
+    height: "2em",
+    color: "white",
+    boxShadow: "inset 0px 0px 20px 3px #493818",
+    background: "#c46e2d",
+    borderRadius: "50%",
+    margin: 5,
+}
+
+const kalahaStyle = {
+	boxShadow: "inset 0px 0px 20px 3px #253309",
+	background: "#4a601a",
+	fontSize: "2em",
+    width: "4em",
+    height: "4em",
+    border: "none",
+    color: "white",
+    borderRadius: "50%",
+    margin: 5,
+}
+
+const playernameStyle = {
+	textAlign: "center",
+	color: "#cea321",
+	fontSize: "3em",
+}
+
 function Kalaha({nrOfStones}) {
-	const kalahaStyle = {
-		boxShadow: "inset 0px 0px 20px 3px #253309",
-		background: "#4a601a",
-		fontSize: "2em",
-	    width: "4em",
-	    height: "4em",
-	    border: "none",
-	    color: "white",
-	    borderRadius: "50%",
-	    margin: 5,
-	}
-	
 	return <button disabled style={kalahaStyle}>{nrOfStones}</button>
 }
 
 export function Play({ gameState, playRecess }: PlayProps) {
 	
-	const recessStyle = {
-	    fontSize: "2em",
-	    width: "2em",
-	    border: "none",
-	    height: "2em",
-	    color: "white",
-	    boxShadow: "inset 0px 0px 20px 3px #493818",
-	    background: "#c46e2d",
-	    borderRadius: "50%",
-	    margin: 5,
-	}
-	
 	const p1pits = gameState.players[0].pits
 	const p2pits = gameState.players[1].pits
 
 	function Board() {
-		return <div>
+		return <div style={{textAlign:"center"}}>
 			<section style={{display:"inline", verticalAlign:"bottom"}}>
 	           <Kalaha nrOfStones={p2pits[6].nrOfStones}/>
 	        </section>
@@ -61,9 +67,13 @@ export function Play({ gameState, playRecess }: PlayProps) {
 	    </div>
 	}
 
+
+
     return <div>
-        <p>{gameState.players[0].name} vs {gameState.players[1].name}</p>
+        <p style={playernameStyle}>{gameState.players[0].name}</p>
         
        <Board/>
+       
+       <p style={playernameStyle}>{gameState.players[1].name}</p>
     </div>
 }
