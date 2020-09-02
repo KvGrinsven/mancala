@@ -32,13 +32,13 @@ const kalahaStyle = {
 }
 
 const turnplayerStyle = {
-	textAlign: "center",
+	textAlign: "center" as "center",
 	color: "green",
 	fontSize: "3em",
 }
 
 const opponentStyle = {
-	textAlign: "center",
+	textAlign: "center" as "center",
 	color: "red",
 	fontSize: "3em",
 }
