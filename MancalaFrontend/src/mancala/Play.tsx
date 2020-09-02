@@ -43,6 +43,12 @@ const opponentStyle = {
 	fontSize: "3em",
 }
 
+const winnerStyle = {
+	textAlign: "center" as "center",
+	color: "#d3d639",
+	fontSize: "4em",
+}
+
 function Kalaha({nrOfStones}) {
 	return <button disabled style={kalahaStyle}>{nrOfStones}</button>
 }
@@ -76,10 +82,16 @@ export function Play({ gameState, playRecess }: PlayProps) {
 
 
     return <div>
+    
+    	{
+    		gameState.gameStatus.endOfGame &&
+    		<p style={winnerStyle}>The game has ended!</p>
+    	}
     	{
 	    	gameState.players[1].hasTurn
 	    	?
-	        <p style={turnplayerStyle}>{gameState.players[1].name}</p>
+	        <p style={turnplayerStyle}>{gameState.players[1].name}
+	        </p>
 	        :
 	        <p style={opponentStyle}>{gameState.players[1].name}</p>
         }
