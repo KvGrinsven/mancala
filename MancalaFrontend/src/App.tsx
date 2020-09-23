@@ -30,7 +30,7 @@ export function App() {
                 },
                 body: JSON.stringify({ nameplayer1: playerOne , nameplayer2: playerTwo })
             });
-    
+
             if (response.ok) {
                 const gameState = await response.json();
                 setGameState(gameState);
@@ -40,7 +40,7 @@ export function App() {
             setErrorMessage(error.toString());
         }
     }
-    
+
     async function playRecess( pit: number) {
     	try {
     		const url = 'mancala/api/play/' + pit;
@@ -51,7 +51,7 @@ export function App() {
                     'Content-Type': 'application/json'
                 }
             });
-    
+
             if (response.ok) {
                 const gameState = await response.json();
                 setGameState(gameState);
